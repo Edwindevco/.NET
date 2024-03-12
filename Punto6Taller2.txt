@@ -1,0 +1,72 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        int amarilla = 0;
+        int rosa = 0;
+        int roja = 0;
+        int verde = 0;
+        int azul = 0;
+
+        string entradaPlaca;
+        bool continuar = true;
+
+        while (continuar)
+        {
+            Console.WriteLine("Ingrese la placa del vehículo (o 'salir' para terminar):");
+            entradaPlaca = Console.ReadLine();
+
+            if (entradaPlaca.ToLower() == "salir")
+            {
+                continuar = false;
+            }
+            else
+            {
+                if (entradaPlaca.Length > 0)
+                {
+                    char ultimoDigito = entradaPlaca[entradaPlaca.Length - 1];
+
+                    switch (ultimoDigito)
+                    {
+                        case '1':
+                        case '2':
+                            amarilla++;
+                            break;
+                        case '3':
+                        case '4':
+                            rosa++;
+                            break;
+                        case '5':
+                        case '6':
+                            roja++;
+                            break;
+                        case '7':
+                        case '8':
+                            verde++;
+                            break;
+                        case '9':
+                        case '0':
+                            azul++;
+                            break;
+                        default:
+                            Console.WriteLine("Dígito inválido");
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Entrada no válida. Por favor, ingrese una placa válida o 'salir'.");
+                }
+            }
+        }
+
+        Console.WriteLine($"Autos con calcomanía amarilla: {amarilla}");
+        Console.WriteLine($"Autos con calcomanía rosa: {rosa}");
+        Console.WriteLine($"Autos con calcomanía roja: {roja}");
+        Console.WriteLine($"Autos con calcomanía verde: {verde}");
+        Console.WriteLine($"Autos con calcomanía azul: {azul}");
+    }
+}

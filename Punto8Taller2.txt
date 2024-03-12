@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int totalCalificaciones = 50;
+        int calificacionesAprobadas = 0;
+
+        Console.WriteLine("Ingrese las calificaciones de los alumnos:");
+
+        for (int i = 1; i <= totalCalificaciones; i++)
+        {
+            Console.Write($"Calificación del alumno {i}: ");
+            int calificacion = int.Parse(Console.ReadLine());
+
+            if (calificacion >= 70)
+            {
+                calificacionesAprobadas++;
+            }
+        }
+
+        double porcentajeAprobados = (double)calificacionesAprobadas / totalCalificaciones * 100;
+        double porcentajeReprobados = 100 - porcentajeAprobados;
+
+        Console.WriteLine($"Porcentaje de alumnos aprobados: {porcentajeAprobados}%");
+        Console.WriteLine($"Porcentaje de alumnos reprobados: {porcentajeReprobados}%");
+    }
+}

@@ -1,0 +1,88 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        const int totalPersonas = 50;
+        int contadorNinos = 0, contadorJovenes = 0, contadorAdultos = 0, contadorViejos = 0;
+        double pesoTotalNinos = 0, pesoTotalJovenes = 0, pesoTotalAdultos = 0, pesoTotalViejos = 0;
+
+        for (int i = 1; i <= totalPersonas; i++)
+        {
+            Console.WriteLine($"Persona {i}: Por favor ingrese la edad:");
+            int edad = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Persona {i}: Por favor ingrese el peso:");
+            double peso = double.Parse(Console.ReadLine());
+
+            if (edad >= 0 && edad <= 12)
+            {
+                contadorNinos++;
+                pesoTotalNinos += peso;
+            }
+            else if (edad >= 13 && edad <= 29)
+            {
+                contadorJovenes++;
+                pesoTotalJovenes += peso;
+            }
+            else if (edad >= 30 && edad <= 59)
+            {
+                contadorAdultos++;
+                pesoTotalAdultos += peso;
+            }
+            else if (edad >= 60)
+            {
+                contadorViejos++;
+                pesoTotalViejos += peso;
+            }
+            else
+            {
+                Console.WriteLine("Edad inválida. Por favor, ingrese una edad válida.");
+                i--; 
+            }
+        }
+
+        double promedioPesoNinos, promedioPesoJovenes, promedioPesoAdultos, promedioPesoViejos;
+
+        if (contadorNinos > 0)
+        {
+            promedioPesoNinos = pesoTotalNinos / contadorNinos;
+        }
+        else
+        {
+            promedioPesoNinos = 0;
+        }
+
+        if (contadorJovenes > 0)
+        {
+            promedioPesoJovenes = pesoTotalJovenes / contadorJovenes;
+        }
+        else
+        {
+            promedioPesoJovenes = 0;
+        }
+
+        if (contadorAdultos > 0)
+        {
+            promedioPesoAdultos = pesoTotalAdultos / contadorAdultos;
+        }
+        else
+        {
+            promedioPesoAdultos = 0;
+        }
+
+        if (contadorViejos > 0)
+        {
+            promedioPesoViejos = pesoTotalViejos / contadorViejos;
+        }
+        else
+        {
+            promedioPesoViejos = 0;
+        }
+
+        Console.WriteLine($"Promedio de peso de niños: {promedioPesoNinos}");
+        Console.WriteLine($"Promedio de peso de jóvenes: {promedioPesoJovenes}");
+        Console.WriteLine($"Promedio de peso de adultos: {promedioPesoAdultos}");
+        Console.WriteLine($"Promedio de peso de viejos: {promedioPesoViejos}");
+    }
+}

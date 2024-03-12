@@ -1,0 +1,59 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        const int totalVotos = 20;
+        int votosCandidato1 = 0, votosCandidato2 = 0, votosCandidato3 = 0;
+
+        string ganador;
+
+        for (int i = 1; i <= totalVotos; i++)
+        {
+            Console.WriteLine($"Voto {i}: Por favor ingrese el número del candidato (1, 2 o 3):");
+            int voto = int.Parse(Console.ReadLine());
+
+            switch (voto)
+            {
+                case 1:
+                    votosCandidato1++;
+                    break;
+                case 2:
+                    votosCandidato2++;
+                    break;
+                case 3:
+                    votosCandidato3++;
+                    break;
+                default:
+                    Console.WriteLine("Voto inválido. Por favor, seleccione un candidato válido.");
+                    i--;
+                    break;
+            }
+        }
+
+        double porcentajeCandidato1 = (double)votosCandidato1 / totalVotos * 100;
+        double porcentajeCandidato2 = (double)votosCandidato2 / totalVotos * 100;
+        double porcentajeCandidato3 = (double)votosCandidato3 / totalVotos * 100;
+
+        if (votosCandidato1 > votosCandidato2 && votosCandidato1 > votosCandidato3)
+        {
+            Console.WriteLine($"Candidato ganador: Candidato 1");
+            Console.WriteLine($"Cantidad de votos del ganador: {votosCandidato1}");
+        }
+        else if (votosCandidato2 > votosCandidato3 && votosCandidato2 > votosCandidato1)
+        {
+            Console.WriteLine($"Candidato ganador: Candidato 2");
+            Console.WriteLine($"Cantidad de votos del ganador: {votosCandidato2}");
+        }
+        else if (votosCandidato3 > votosCandidato1 && votosCandidato3 > votosCandidato2)
+        {
+            Console.WriteLine($"Candidato ganador: Candidato 3");
+            Console.WriteLine($"Cantidad de votos del ganador: {votosCandidato3}");
+        }
+
+        Console.WriteLine($"Porcentaje de votos del Candidato 1: {porcentajeCandidato1}%");
+        Console.WriteLine($"Porcentaje de votos del Candidato 2: {porcentajeCandidato2}%");
+        Console.WriteLine($"Porcentaje de votos del Candidato 3: {porcentajeCandidato3}%");
+    }
+}

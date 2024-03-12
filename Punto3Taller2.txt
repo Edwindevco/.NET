@@ -1,0 +1,47 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int clientes = 15;
+        double ingresoTiendas = 0;
+
+        for (int i = 0; i < clientes; i++)
+        {
+            Console.WriteLine("¿Cuántos kilos desea comprar?");
+            double kilosComprar = Convert.ToDouble(Console.ReadLine());
+
+            if (kilosComprar <= 0)
+            {
+                return;
+            }
+            Console.WriteLine("¿Cuánto vale el kilo?");
+            double precioKilo = Convert.ToDouble(Console.ReadLine());
+
+            if (precioKilo <= 0)
+            {
+                return;
+            }
+
+            if (kilosComprar > 10)
+            {
+                double compra = kilosComprar * precioKilo;
+                double desc = compra * 0.15;
+                double resultadoDesc = compra - desc;
+                Console.WriteLine("Ha recibido descuento del 15% \n Usted pagará: " + resultadoDesc);
+                ingresoTiendas += resultadoDesc;
+            }
+            else if (kilosComprar <= 10)
+            {
+                double resultado = kilosComprar * precioKilo;
+                Console.WriteLine("Usted pagará: " + resultado);
+                ingresoTiendas += resultado;
+
+            }
+
+
+        }
+        Console.WriteLine("En total la tienda ha recibido " + "$" + ingresoTiendas);
+    }
+}

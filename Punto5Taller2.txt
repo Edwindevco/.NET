@@ -1,0 +1,109 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Seleccione el tipo de animal a estudiar:");
+        Console.WriteLine("1. Elefantes");
+        Console.WriteLine("2. Jirafas");
+        Console.WriteLine("3. Chimpancés");
+
+        int tipoAnimal = int.Parse(Console.ReadLine());
+
+        int totalMuestras = 0;
+        int contador0a1 = 0;
+        int contador2a3 = 0;
+        int contadorMasDe3 = 0;
+
+        switch (tipoAnimal)
+        {
+            case 1:
+                totalMuestras = 20;
+                for (int i = 1; i <= totalMuestras; i++)
+                {
+                    Console.WriteLine("Ingrese la edad del elefante " + i + ":");
+                    int edad = int.Parse(Console.ReadLine());
+                    if (edad >= 0 && edad <= 1)
+                    {
+                        contador0a1++;
+                    }
+                    else if (edad > 1 && edad < 3)
+                    {
+                        contador2a3++;
+                    }
+                    else if (edad >= 3)
+                    {
+                        contadorMasDe3++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Edad inválida");
+                        i--;
+                    }
+                }
+                break;
+            case 2:
+                totalMuestras = 15;
+                for (int i = 1; i <= totalMuestras; i++)
+                {
+                    Console.WriteLine("Ingrese la edad de la jirafa " + i + ":");
+                    int edad = int.Parse(Console.ReadLine());
+                    if (edad >= 0 && edad <= 1)
+                    {
+                        contador0a1++;
+                    }
+                    else if (edad > 1 && edad < 3)
+                    {
+                        contador2a3++;
+                    }
+                    else if (edad >= 3)
+                    {
+                        contadorMasDe3++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Edad inválida");
+                        i--;
+                    }
+                }
+                break;
+            case 3:
+                totalMuestras = 40;
+                for (int i = 1; i <= totalMuestras; i++)
+                {
+                    Console.WriteLine("Ingrese la edad del chimpancé " + i + ":");
+                    int edad = int.Parse(Console.ReadLine());
+                    if (edad >= 0 && edad <= 1)
+                    {
+                        contador0a1++;
+                    }
+                    else if (edad > 1 && edad < 3)
+                    {
+                        contador2a3++;
+                    }
+                    else if (edad >= 3)
+                    {
+                        contadorMasDe3++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Edad inválida");
+                        i--;
+                    }
+                }
+                break;
+            default:
+                Console.WriteLine("Opción inválida");
+                return;
+        }
+
+        double porcentaje0a1 = (double)contador0a1 / totalMuestras * 100;
+        double porcentaje2a3 = (double)contador2a3 / totalMuestras * 100;
+        double porcentajeMasDe3 = (double)contadorMasDe3 / totalMuestras * 100;
+
+        Console.WriteLine($"Porcentaje de animales de 0 a 1 año: {porcentaje0a1}%");
+        Console.WriteLine($"Porcentaje de animales de más de 1 año y menos de 3: {porcentaje2a3}%");
+        Console.WriteLine($"Porcentaje de animales de más de 3 años: {porcentajeMasDe3}%");
+    }
+}
