@@ -1,0 +1,40 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Bienvenido al generador de números primos");
+        Console.WriteLine("Ingrese la cantidad de números primos que desea generar:");
+        int cantidadNumerosPrimos = int.Parse(Console.ReadLine());
+
+        int contador = 0;
+        int numero = 2;
+
+        Console.WriteLine($"Los primeros {cantidadNumerosPrimos} números primos son:");
+
+        while (contador < cantidadNumerosPrimos)
+        {
+            bool esPrimo = true;
+
+            for (int i = 2; i * i <= numero; i++)
+            {
+                if (numero % i == 0)
+                {
+                    esPrimo = false;
+                    break;
+                }
+            }
+
+            if (esPrimo)
+            {
+                Console.Write(numero + " ");
+                contador++;
+            }
+
+            numero++;
+        }
+
+        Console.ReadLine(); 
+    }
+}

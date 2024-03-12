@@ -1,0 +1,40 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+
+        Console.WriteLine("Ingrese el total de empleados:");
+        int totalEmpleados = int.Parse(Console.ReadLine());
+
+        double totalSueldosNetos = 0;
+        double totalRetenidoRenta = 0;
+        double totalRetenidoAFP = 0;
+        double totalRetenidoISSS = 0;
+
+        for (int i = 0; i < totalEmpleados; i++)
+        {
+            Console.WriteLine($"\nEmpleado {i + 1}");
+
+            Console.WriteLine("Ingrese el sueldo base del empleado:");
+            double sueldoBase = double.Parse(Console.ReadLine());
+
+            double renta = sueldoBase * 0.10;
+            double AFP = sueldoBase * 0.05;
+            double ISSS = sueldoBase * 0.04;
+            double sueldoNeto = sueldoBase - renta - AFP - ISSS;
+
+            totalSueldosNetos += sueldoNeto;
+            totalRetenidoRenta += renta;
+            totalRetenidoAFP += AFP;
+            totalRetenidoISSS += ISSS;
+        }
+
+        Console.WriteLine("\nReporte Contable:");
+        Console.WriteLine($"Total a pagar en sueldos netos: {totalSueldosNetos}");
+        Console.WriteLine($"Total retenido en concepto de Renta: {totalRetenidoRenta}");
+        Console.WriteLine($"Total retenido en concepto de AFP: {totalRetenidoAFP}");
+        Console.WriteLine($"Total retenido en concepto de ISSS: {totalRetenidoISSS}");
+    }
+}
